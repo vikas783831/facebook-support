@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Support Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1877f2;
+            --primary-dark: #166fe5;
+            --primary-light: #e7f3ff;
+            --accent: #00b8ff;
+            --dark: #18191a;
+            --light: #ffffff;
+            --gray: #f0f2f5;
+            --text: #050505;
+            --text-light: #65676b;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: var(--gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--light);
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf5NDK.png') no-repeat;
+            background-position: right bottom;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* Customer Care Banner */
+        .customer-care {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .care-number {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .care-icon {
+            background-color: var(--primary-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .number-details h3 {
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .number-details p {
+            margin: 5px 0 0;
+            color: var(--text-light);
+        }
+
+        .call-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .call-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Quick Help */
+        .quick-help {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .quick-help-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .quick-help a {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-help a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .quick-help a i {
+            font-size: 1.2rem;
+        }
+
+        /* Content Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background-color: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .card-body li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .card-body li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            display: none;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--light);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #b0b3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--light);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3e4042;
+            color: #b0b3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .customer-care {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .care-number {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .quick-help-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="container">
+                <h1>Facebook Support Hub</h1>
+                <p class="tagline">Get help with your Facebook account, privacy, and more</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Customer Care Section -->
+        <div class="customer-care">
+            <div class="care-number">
+                <div class="care-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="number-details">
+                    <h3>Facebook Customer Care</h3>
+                    <p>Available 24/7 for account support</p>
+                </div>
+            </div>
+            <a href="tel:+18889879070" class="call-button">
+                <i class="fas fa-phone"></i> Call Now: +1 (888) 987-9070
+            </a>
+        </div>
+
+        <!-- Quick Help Section -->
+        <div class="quick-help">
+            <h2><i class="fas fa-bolt"></i> Quick Help</h2>
+            <div class="quick-help-links">
+                <a href="#account">
+                    <i class="fas fa-user-circle"></i> Account Help
+                </a>
+                <a href="#privacy">
+                    <i class="fas fa-lock"></i> Privacy Settings
+                </a>
+                <a href="#hacked">
+                    <i class="fas fa-shield-alt"></i> Hacked Accounts
+                </a>
+                <a href="#messenger">
+                    <i class="fas fa-comment-dots"></i> Messenger
+                </a>
+                <a href="#business">
+                    <i class="fas fa-briefcase"></i> Business Tools
+                </a>
+                <a href="#report">
+                    <i class="fas fa-flag"></i> Report Issues
+                </a>
+                <a href="#payments">
+                    <i class="fas fa-credit-card"></i> Payments
+                </a>
+                <a href="#groups">
+                    <i class="fas fa-users"></i> Groups & Pages
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="card-grid">
+            <div class="card" id="account">
+                <div class="card-header">
+                    <i class="fas fa-user-circle"></i> Account Help
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>How to create a Facebook account</li>
+                        <li>Recover a hacked or disabled account</li>
+                        <li>Change your name or personal information</li>
+                        <li>Two-factor authentication setup</li>
+                        <li>Delete or deactivate your account</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" id="privacy">
+                <div class="card-header">
+                    <i class="fas fa-lock"></i> Privacy Settings
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Control who sees your posts</li>
+                        <li>Limit past post visibility</li>
+                        <li>Manage profile information visibility</li>
+                        <li>Block users and manage blocked list</li>
+                        <li>Adjust tagging settings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" id="hacked">
+                <div class="card-header">
+                    <i class="fas fa-shield-alt"></i> Hacked Accounts
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Signs your account was hacked</li>
+                        <li>Immediate steps to secure your account</li>
+                        <li>How to report a hacked account</li>
+                        <li>Preventing future hacks</li>
+                        <li>Recovering lost information</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2><i class="far fa-question-circle"></i> Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>How do I contact Facebook support directly?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can contact Facebook support by calling our customer care number at <strong>+1 (888) 987-9070</strong> or by visiting the Facebook Help Center and using the "Report a Problem" feature. For business accounts, additional support options are available in your Business Manager settings.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>Why was my account disabled and how do I recover it?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Accounts are typically disabled for violating Facebook's Community Standards. To appeal, visit facebook.com/help and follow the account disabled instructions. You'll need to provide identification to verify your account. The review process may take several days.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>How can I increase my account security?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We recommend: 1) Enabling two-factor authentication, 2) Using a strong, unique password, 3) Being cautious of suspicious messages, 4) Regularly checking active sessions, and 5) Keeping your contact information up to date. All these options are available in your Security Settings.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>What should I do if I see fake accounts impersonating me?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Go to the fake profile, click the three dots (...) on the cover photo, and select "Find support or report profile". Choose "Pretending to be someone" and select your name. Facebook will review the report typically within 24 hours.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>How do I manage what I see in my News Feed?</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can prioritize who to see first by visiting their profile and selecting "Favorites" or "See First" in the Following dropdown. You can also unfollow people without unfriending them, or adjust your feed preferences in Settings.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community Help</a></li>
+                        <li><a href="#">Report a Problem</a></li>
+                        <li><a href="#">Support Inbox</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Account</h3>
+                    <ul>
+                        <li><a href="#">Login Help</a></li>
+                        <li><a href="#">Privacy Settings</a></li>
+                        <li><a href="#">Security Tips</a></li>
+                        <li><a href="#">Account Recovery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Safety Center</a></li>
+                        <li><a href="#">Business Help</a></li>
+                        <li><a href="#">Developer Docs</a></li>
+                        <li><a href="#">Facebook Blueprint</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Community Standards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Facebook Support Hub. This is an independent resource providing support information for Facebook users.</p>
+                <p>Official customer care: +1 (888) 987-9070</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Function
+        function toggleAnswer(question) {
+            const answer = question.parentElement.querySelector('.faq-answer');
+            const icon = question.querySelector('i');
+            
+            answer.classList.toggle('show');
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
